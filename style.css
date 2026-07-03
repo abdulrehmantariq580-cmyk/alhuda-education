@@ -1,0 +1,1061 @@
+/* --- CSS Variables based on Logo Theme --- */
+:root {
+    --color-gold: #C5A059;
+    --color-gold-dark: #A68444;
+    --color-black: #1A1A1A;
+    --color-dark-grey: #333333;
+    --color-light-grey: #F5F5F5;
+    --color-white: #FFFFFF;
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    --transition: all 0.3s ease-in-out;
+}
+
+/* --- Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-white);
+    color: var(--color-dark-grey);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- Button Styles --- */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+    color: var(--color-white);
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-black);
+    padding: 12px 28px;
+    border: 2px solid var(--color-light-grey);
+    border-radius: 5px;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+/* --- Premium Header --- */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+#main-header.scrolled {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 5px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    transition: var(--transition);
+}
+
+#main-header.scrolled .header-container {
+    height: 70px;
+}
+
+/* --- Updated Logo & Text Styles --- */
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Image aur text ke darmiyan faasla */
+    text-decoration: none;
+}
+
+/* --- Updated Circular Logo Image --- */
+.logo-img {
+    height: 60px; 
+    width: 60px; /* Perfect circle ke liye width aur height same rakhi hai */
+    border-radius: 50%; /* Isey bilkul gol (circular) banayega */
+    border: 2px solid var(--color-gold); /* Golden border */
+    padding: 2px; /* Border aur logo ke darmiyan thori si premium space */
+    object-fit: cover; 
+    box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); /* Halka sa golden glow */
+    background-color: var(--color-black); /* Agar logo transparent ho toh background dark dikhega */
+    transition: var(--transition);
+}
+
+/* Hover Effect (Optional but looks great) */
+.logo-box:hover .logo-img {
+    transform: rotate(5deg) scale(1.05); /* Hover par slight rotation aur zoom */
+    box-shadow: 0 6px 15px rgba(197, 160, 89, 0.5);
+}
+
+/* Text Container */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* "AL HUDA" Styling */
+.logo-title {
+    font-family: var(--font-heading); /* Cinzel Font */
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    line-height: 1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* "EDUCATION" Styling */
+.logo-subtitle {
+    font-family: var(--font-body); /* Poppins Font */
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-dark-grey);
+    letter-spacing: 4px; /* Text ko khula rakhne ke liye */
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: var(--color-black);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    bottom: -5px;
+    left: 0;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--color-gold);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--color-black);
+    cursor: pointer;
+}
+
+/* --- Majestic Hero Section --- */
+.hero-section {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: var(--color-white);
+    overflow: hidden;
+}
+
+/* Subtle elegant glow behind text */
+.bg-glow {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, rgba(255,255,255,0) 70%);
+    z-index: 0;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeUp 1s ease forwards;
+}
+
+.subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-gold);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.gold-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.8rem;
+    color: var(--color-black);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.text-gold {
+    color: var(--color-gold);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-grey);
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-visual {
+    flex: 1;
+    position: relative;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+/* The Premium Image Frame Effect */
+.image-frame {
+    position: relative;
+    padding: 20px;
+}
+
+.image-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    border: 3px solid var(--color-gold);
+    border-radius: 20px 100px 20px 20px; /* Islamic Arch aesthetic */
+    z-index: 0;
+    transition: var(--transition);
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px 100px 20px 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    left: -20px;
+    background: var(--color-white);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+    border-left: 4px solid var(--color-gold);
+}
+
+.floating-badge i {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+}
+
+.floating-badge span {
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+/* --- Animations --- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
+    .hero-content h1 { font-size: 3rem; }
+    .hero-container { flex-direction: column; text-align: center; }
+    .subtitle { justify-content: center; }
+    .hero-content p { max-width: 100%; margin: 0 auto 30px auto; }
+    .hero-buttons { justify-content: center; }
+    .image-frame::before { width: 100%; }
+}
+
+/* --- Mobile Responsiveness (Updated for Right Swipe & Full Screen) --- */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    
+    .nav-links {
+        position: fixed; /* 'absolute' ki jagah 'fixed' taake scroll karne par bhi menu screen par rahay */
+        top: 90px; /* Header ke bilkul neechay se shuru hoga */
+        right: -100%; /* Menu ab Right side par chupa hoga */
+        left: auto; /* Purani left property ko cancel karne ke liye */
+        width: 100%;
+        height: calc(100vh - 90px); /* Pori bachi hui screen ko cover karega */
+        background: var(--color-white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Links ko center ke bajaye thora upar se shuru karega */
+        padding-top: 10vh; /* Links aur top ke darmiyan behtareen faasla */
+        transition: 0.4s ease-in-out;
+        z-index: 999;
+    }
+    
+    .nav-links.active { 
+        right: 0; /* Swipe ho kar right se screen par smoothly aayega */
+    }
+
+    /* Jab page scroll ho aur header chota (70px) ho jaye, toh menu uske hisaab se adjust ho */
+    #main-header.scrolled .nav-links {
+        top: 70px;
+        height: calc(100vh - 70px);
+    }
+
+    .nav-actions .btn-primary { display: none; } /* Mobile header mein button hide kiya hai jagah ke liye */
+    
+    /* Hero Section Mobile Adjustments */
+    .hero-content h1 { font-size: 2.3rem; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-secondary { justify-content: center; width: 100%; }
+    .floating-badge { left: 10px; bottom: 10px; padding: 10px 15px; }
+}
+
+/* --- Part 2: Core Values Section --- */
+.features-section {
+    padding: 100px 0;
+    background-color: var(--color-white); /* Pure white background */
+}
+
+/* Section Header Styling */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeUp 1s ease forwards;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading); /* Cinzel Font */
+    font-size: 2.8rem;
+    color: var(--color-black);
+    margin-bottom: 15px;
+}
+
+.gold-separator {
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-gold);
+    margin: 0 auto 20px auto;
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--color-dark-grey);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid Layout for Cards */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 10px; /* Taki shadow cut na ho */
+}
+
+/* Feature Card Styling */
+.feature-card {
+    background-color: var(--color-white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); /* Bohot soft, premium shadow */
+    border-bottom: 3px solid transparent; /* Hover par gold hoga */
+    transition: var(--transition);
+}
+
+/* Card Hover Animation (Top Notch Feel) */
+.feature-card:hover {
+    transform: translateY(-10px); /* Card upar uthega */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Shadow deep hoga */
+    border-bottom-color: var(--color-gold); /* Neechay golden line aayegi */
+}
+
+/* Icon Box inside Card */
+.icon-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(197, 160, 89, 0.1); /* Light golden background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+    color: var(--color-gold);
+    font-size: 2.2rem;
+    transition: var(--transition);
+}
+
+/* Icon Box Hover Effect */
+.feature-card:hover .icon-box {
+    background: var(--color-gold);
+    color: var(--color-white);
+    transform: scale(1.1); /* Icon thora bara hoga */
+}
+
+.feature-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-black);
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: var(--color-dark-grey);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* --- Mobile Responsiveness for Part 2 --- */
+@media (max-width: 768px) {
+    .features-section {
+        padding: 70px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .features-grid {
+        gap: 20px;
+    }
+}
+
+/* --- Part 3: Courses Showcase Section --- */
+.courses-section {
+    padding: 100px 0;
+    /* Soft light-grey background to make the dark cards pop out */
+    background-color: #FAFAFA; 
+}
+
+.courses-grid {
+    display: grid;
+    /* Auto-fit grid for perfect responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+/* Premium Dark Course Card */
+.course-card {
+    background-color: var(--color-black); /* Dark theme matching logo */
+    border-radius: 15px;
+    overflow: hidden; /* Keeps image inside borders */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    border-top: 4px solid var(--color-gold); /* Golden touch at the top */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Wrapper & Animations */
+.course-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.course-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease; /* Slow, premium zoom effect */
+}
+
+.course-card:hover .course-img-wrapper img {
+    transform: scale(1.1); /* Zooms image on card hover */
+}
+
+/* Image Overlay/Tint to darken the image slightly */
+.course-img-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(26,26,26,0.8));
+}
+
+/* Floating Badge on Image */
+.course-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    padding: 6px 15px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Card Content Area */
+.course-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Pushes the button to the bottom if content is small */
+}
+
+/* Course Metadata (Duration, Certification) */
+.course-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
+    padding-bottom: 15px;
+}
+
+.course-meta span {
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.course-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-white); /* White heading on dark background */
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.course-card p {
+    color: #BBBBBB; /* Soft light grey text for readability */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* "View Details" Link inside Card */
+.course-link {
+    color: var(--color-gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    align-self: flex-start;
+}
+
+.course-link i {
+    transition: transform 0.3s ease;
+}
+
+/* Link Hover Animation */
+.course-link:hover {
+    color: var(--color-white);
+}
+
+.course-link:hover i {
+    transform: translateX(5px); /* Arrow smoothly slides to the right */
+}
+
+/* Center the View All Button */
+.view-all-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .courses-section {
+        padding: 70px 0;
+    }
+    
+    .courses-grid {
+        gap: 30px;
+    }
+}
+/* --- Part 4: Parallax Stats Banner --- */
+.stats-banner {
+    position: relative;
+    padding: 80px 0;
+    /* Yeh background image parallax effect degi. Aap isey masjid ya library ki pic se replace kar sakte hain */
+    background: url('https://images.unsplash.com/photo-1572889613612-4091a1828d11?q=80&w=1600&auto=format&fit=crop') center center;
+    background-size: cover;
+    background-attachment: fixed; /* Parallax Magic happens here */
+}
+
+/* Dark overlay to make gold text pop */
+.stats-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.85); /* Dark charcoal overlay */
+}
+
+.stats-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item i {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+}
+
+.stat-item h3 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-white);
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.stat-item p {
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* --- Real Teaching Methodology Section --- */
+.methodology-section {
+    padding: 100px 0;
+    background-color: var(--color-white);
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Premium Numbered Cards */
+.method-card {
+    position: relative;
+    background: #FAFAFA;
+    padding: 40px 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transition);
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Big faded number behind the text */
+.method-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-family: var(--font-heading);
+    font-size: 8rem;
+    font-weight: 700;
+    color: rgba(197, 160, 89, 0.05); /* Extremely faded gold */
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.method-card:nth-child(1)::before { content: '01'; }
+.method-card:nth-child(2)::before { content: '02'; }
+.method-card:nth-child(3)::before { content: '03'; }
+
+.method-card:hover {
+    background: var(--color-white);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: var(--color-gold);
+}
+
+.method-card:hover::before {
+    color: rgba(197, 160, 89, 0.15); /* Becomes slightly more visible on hover */
+    transform: scale(1.1);
+}
+
+.method-number {
+    display: inline-block;
+    background: var(--color-black);
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.method-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--color-black);
+    margin-bottom: 15px;
+}
+
+.method-card p {
+    color: var(--color-dark-grey);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .stats-banner { padding: 60px 0; }
+    .stats-container { flex-direction: column; gap: 40px; }
+    .methodology-section { padding: 70px 0; }
+}
+/* --- Part 5: Pre-Footer CTA --- */
+.pre-footer-cta {
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+    padding: 60px 0;
+}
+
+.cta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.cta-content {
+    flex: 2;
+}
+
+.cta-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--color-white);
+    margin-bottom: 10px;
+}
+
+.text-black {
+    color: var(--color-black);
+}
+
+.cta-content p {
+    color: var(--color-white);
+    font-size: 1.05rem;
+    opacity: 0.9;
+}
+
+.cta-action {
+    flex: 1;
+    text-align: right;
+}
+
+/* Specific Large Button for CTA */
+.btn-large {
+    background: var(--color-black);
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    padding: 15px 35px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.btn-large:hover {
+    background: var(--color-dark-grey);
+    color: var(--color-white);
+    transform: translateY(-3px);
+}
+
+/* --- Majestic Main Footer --- */
+.main-footer {
+    background-color: var(--color-black);
+    color: #BBBBBB; /* Soft readable grey */
+    position: relative;
+    padding-top: 80px;
+}
+
+.footer-top-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 50px;
+    padding-bottom: 60px;
+}
+
+.footer-col h3 {
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Small gold line under headings */
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+/* About Column */
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    max-width: 90%;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 50%;
+    color: var(--color-gold);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    transform: translateY(-3px);
+}
+
+/* Quick Links Column */
+.links-col ul {
+    list-style: none;
+}
+
+.links-col ul li {
+    margin-bottom: 12px;
+}
+
+.links-col ul a {
+    color: #BBBBBB;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.links-col ul a i {
+    font-size: 0.7rem;
+    color: var(--color-gold);
+    transition: var(--transition);
+}
+
+.links-col ul a:hover {
+    color: var(--color-gold);
+    transform: translateX(5px);
+}
+
+/* Contact Info Column */
+.contact-info-list {
+    list-style: none;
+}
+
+.contact-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contact-info-list li i {
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+/* Copyright Bar */
+.footer-bottom {
+    background-color: #111111; /* Even darker than footer */
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.flex-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.footer-bottom-links a {
+    color: #BBBBBB;
+    margin-left: 20px;
+    transition: var(--transition);
+}
+
+.footer-bottom-links a:hover {
+    color: var(--color-gold);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 992px) {
+    .cta-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cta-action {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Mobile par sab ek line mein stack ho jayega */
+        gap: 40px;
+    }
+    .footer-desc {
+        max-width: 100%;
+    }
+    .flex-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .footer-bottom-links a {
+        margin: 0 10px;
+    }
+}
